@@ -49,7 +49,6 @@ public class GameRunner {
     AggregateAnnotationCommandHandler.subscribe(ResistanceGame.class,
         repository, commandBus);
 
-    AnnotationEventListenerAdapter.subscribe(new ResistanceGame(), eventBus);
     AnnotationEventListenerAdapter.subscribe(new GameAnalyzer(), eventBus);
     AnnotationEventListenerAdapter.subscribe(new SqlAdapter(), eventBus);
 
@@ -61,8 +60,8 @@ public class GameRunner {
     gateway.send(new RegisterPlayerCommand(gameId, new Player("Jason")));
     gateway.send(new RegisterPlayerCommand(gameId, new Player("Matt")));
     gateway.send(new RegisterPlayerCommand(gameId, new Player("Jon")));
-    gateway.send(new RegisterPlayerCommand(gameId, new Player("Naveen")));
     gateway.send(new DeregisterPlayerCommand(gameId, new Player("Jason")));
+    gateway.send(new RegisterPlayerCommand(gameId, new Player("Naveen")));
     gateway.send(new RegisterPlayerCommand(gameId, new Player("Daniil")));
 
     gateway.send(new StartGameCommand(gameId));
