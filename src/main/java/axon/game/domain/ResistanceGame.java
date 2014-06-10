@@ -3,6 +3,7 @@ package axon.game.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
@@ -23,11 +24,12 @@ import axon.game.event.PlayerRegisteredEvent;
 @NoArgsConstructor
 @Log4j
 public class ResistanceGame extends
-    AbstractAnnotatedAggregateRoot<ResistanceGame> {
+AbstractAnnotatedAggregateRoot<ResistanceGame> {
 
   @AggregateIdentifier
   private String id;
 
+  @Getter
   private final Set<Player> players = new HashSet<>();
 
   @CommandHandler
